@@ -7,6 +7,13 @@ body{
   height: 60px;
   background-color: #4484F6;
   color: white;
+  line-height: 60px;
+  font-size: 2.5em;
+}
+
+.toolbar_title{
+  text-align: center;
+  padding-right: 1em;
 }
 
 .open-drawer-btn{

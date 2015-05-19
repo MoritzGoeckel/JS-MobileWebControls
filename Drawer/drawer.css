@@ -5,15 +5,15 @@ body{
 .toolbar{
   width: 100%;
   height: 60px;
-  background-color: #246068;
+  background-color: #4484F6;
+  color: white;
 }
 
 .open-drawer-btn{
-  background-color: #A33643;
-  width: 50px;
-  height: 50px;
-  margin-left: 5px;
-  margin-top: 5px;
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+  margin-top: 10px;
   float: left;
 }
 
@@ -23,7 +23,7 @@ body{
   position: fixed;
   width: 300px;
   height: 100%;
-  background-color: #69969C;
+  background-color: #3D76DD;
   left: -300px;
   <!--top: 0px;-->
 }
@@ -31,12 +31,17 @@ body{
 .drawer ul {
   list-style-type: none;
   padding: 0px;
-  margin-left: 30px;
   margin: 0px;
 }
 
+.drawer ul li{
+  padding-top: 0.4em;
+  padding-bottom: 0.4em;
+  padding-left: 0.8em;
+}
+
 .drawer ul li:nth-child(odd){
-  background-color: #9DBFC4;
+
 }
 
 .drawer ul li:nth-child(even){
@@ -44,11 +49,11 @@ body{
 }
 
 .drawerContent{
-  margin-top: 30px;
-  font-size: 35px;
+  margin-top: 0.4em;
+  font-size: 2em;
 }
 
 .drawer a{
   text-decoration: none;
-  color: #012E34;
+  color: white;
 }

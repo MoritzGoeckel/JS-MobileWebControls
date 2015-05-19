@@ -45,6 +45,7 @@ body{
   padding-top: 0.4em;
   padding-bottom: 0.4em;
   padding-left: 0.8em;
+  border-bottom: solid #4484F6 1px;
 }
 
 .drawer ul li:nth-child(odd){

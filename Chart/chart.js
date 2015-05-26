@@ -9,13 +9,18 @@ $(function () { //Init
 function Chart(container_id)
 {
   var chart = $("#"+container_id);
+  var context = c.getContext("2d");
   var data;
 
   this.redraw = function(){
     this.calcExtrema();
 
-    //Clear Chart
+    //Clear and start
+    context.clearRect (0, 0, chart.width, chart.height);
+    context.beginPath();
+
     for(i = 0; i < data.length; i++){
+      //Berechne Koordinaten
       var x = data[i].x;
       var y = data[i].y;
 
@@ -23,7 +28,14 @@ function Chart(container_id)
       var charty = (y - minY) / (maxY - minY);
 
       //Einzeichnen
+      if(i === 0)
+        context.moveTo(chartx, charty);
+      else
+        context.lineTo(chartx, charty);
     }
+
+    //Pfad einzeichnen
+    context.stroke();
   };
 
   var maxX = -1000000;

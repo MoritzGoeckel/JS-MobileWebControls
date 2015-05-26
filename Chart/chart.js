@@ -12,6 +12,7 @@ function Chart(container_id)
   var context = c.getContext("2d");
   var data;
 
+
   this.redraw = function(){
     this.calcExtrema();
 
@@ -42,6 +43,8 @@ function Chart(container_id)
   var minX = 1000000;
   var maxY = -1000000;
   var minY = 1000000;
+
+
   this.calcExtrema = function(){
     for(i = 0; i < data.length; i++){
       var x = data[i].x;
@@ -63,6 +66,7 @@ function Chart(container_id)
     console.log("Y: " + maxY + " <-> " + minY);
   };
 
+  
   this.setData = function(json){
     data = jQuery.parseJSON(json);
     console.log(data);

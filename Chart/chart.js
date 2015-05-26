@@ -12,7 +12,18 @@ function Chart(container_id)
   var data;
 
   this.redraw = function(){
-    
+    this.calcExtrema();
+
+    //Clear Chart
+    for(i = 0; i < data.length; i++){
+      var x = data[i].x;
+      var y = data[i].y;
+
+      var chartx = (x - minX) / (maxX - minX);
+      var charty = (y - minY) / (maxY - minY);
+
+      //Einzeichnen
+    }
   };
 
   var maxX = -1000000;

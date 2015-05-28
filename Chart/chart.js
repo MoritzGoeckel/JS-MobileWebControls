@@ -1,7 +1,7 @@
 $(function () { //Init
   console.log("Init");
   chart = new Chart("myCanvas");
-
+  
   chart.setData('[{"x": 200, "y": 10}, {"x": 200, "y": 10}, {"x": 240, "y": 15}, {"x": 300, "y": 13}, {"x": 500, "y": 11}]');
   chart.redraw();
 });

@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="slider.js"></script>
+    <script>
+      $( document ).ready(function() {
+          slider = new Slider('#schieber', '#schiene');
+          slider.setValue(27);
+          slider.setChangedEvent(onSliderChanged);
+      });
+
+      function onSliderChanged(newValue){
+          console.log(newValue);
+          w = c.style.width = (newValue + 37) + 'mm';
+          $(".r").val((newValue + 37) / 54);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="schiene" style="background-color: #004b82; width: 400px; height: 5px; border-radius: 2.5px; margin-top: 10px; position: relative;">
+      <div id="schieber" style="width: 20px; height: 20px; border-radius: 10px; position: absolute; background-color: #306096; margin-top: -7px; cursor: pointer;"></div>
+    </div>
+  </body>
+</html>

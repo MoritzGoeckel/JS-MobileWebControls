@@ -1,15 +1,15 @@
 $(function () { //Init
   console.log("Init");
-  chart = new Chart();
+  chart = new Chart("myCanvas");
 
   chart.setData('[{"x": 200, "y": 10}, {"x": 200, "y": 10}, {"x": 240, "y": 15}, {"x": 300, "y": 13}, {"x": 500, "y": 11}]');
-  chart.calcExtrema();
+  chart.redraw();
 });
 
 function Chart(container_id)
 {
-  var chart = $("#"+container_id);
-  var context = c.getContext("2d");
+  var chart = $("#"+container_id).get(0);
+  var context = chart.getContext("2d");
   var data;
 
 
@@ -66,7 +66,7 @@ function Chart(container_id)
     console.log("Y: " + maxY + " <-> " + minY);
   };
 
-  
+
   this.setData = function(json){
     data = jQuery.parseJSON(json);
     console.log(data);

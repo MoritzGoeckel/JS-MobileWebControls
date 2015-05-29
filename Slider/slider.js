@@ -7,20 +7,22 @@ function Slider(schieberId, schieneId){
     var clicked = false;
     var stepsize = 5;
 
+    var width;
+
     var changedEvent;
 
     this.setValue = function(newValue){
         value = newValue;
-        $(schieberId).css('margin-left', steppyfy(value * onePercent) + "px")
+        $(schieberId).css('margin-left', steppyfy(value * onePercent) + "px");
     };
 
     this.setChangedEvent = function(method){
         changedEvent = method;
-    }
+    };
 
     this.getValue = function(){
         return value;
-    }
+    };
 
     this.setClickListener = function(){
         var schieber = document.getElementById("schieber");
@@ -47,12 +49,13 @@ function Slider(schieberId, schieneId){
         });
     };
 
-    function move(event){
+    function move (event){
         mousePos.x = event.pageX - $(schieneId).offset().left;
         mousePos.y = event.pageY - $(schieneId).offset().top;
         if (clicked) {
             var x = mousePos.x;
-            var maxX = $(schieneId).width();
+            var maxX = width;
+            console.log("width: " + width);
 
             if (x > maxX) x = maxX;
             if (x < 0) x = 0;
@@ -74,15 +77,16 @@ function Slider(schieberId, schieneId){
 
     this.init = function(){
         this.setValue(initialValue);
-        onePercent = $(schieneId).width() / max;
+        width = $(schieneId).width() - 10;
+        onePercent = width / max;
 
         this.setClickListener();
     };
 
-    function steppyfy(value){
+    steppyfy = function(value){
         var newValue =  (value / stepsize).toFixed(0) * stepsize;
         return newValue;
-    }
+    };
 
     this.init();
 }

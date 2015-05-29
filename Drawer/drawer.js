@@ -2,7 +2,7 @@ $(function () { //Init
   console.log("Init");
   drawer = new Drawer();
 
-  $("#open-drawer-btn").click(function(event){
+  $("#open-drawer-btn").on('click touchstart',function(event){
     drawer.toggle();
   });
 });

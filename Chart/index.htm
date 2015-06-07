@@ -8,6 +8,14 @@
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script language="javascript" type="text/javascript" src="chart.js"></script>
+  <script language="javascript" type="text/javascript">
+    $(function() {
+      console.log( "ready!" );
+      var chart = new Chart("myCanvas");
 
+      chart.setData('[{"x": 1, "y": 10}, {"x": 3, "y": 3}, {"x": 5, "y": 4}, {"x": 6, "y": 10}]');
+      chart.redraw();
+    });
+  </script>
 </body>
 </html>

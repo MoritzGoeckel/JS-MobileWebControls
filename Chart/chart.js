@@ -1,11 +1,3 @@
-$(function () { //Init
-  console.log("Init");
-  chart = new Chart("myCanvas");
-
-  chart.setData('[{"x": 200, "y": 10}, {"x": 200, "y": 10}, {"x": 240, "y": 15}, {"x": 300, "y": 13}, {"x": 500, "y": 11}]');
-  chart.redraw();
-});
-
 function Chart(container_id)
 {
   var chart = $("#"+container_id).get(0);
@@ -26,7 +18,7 @@ function Chart(container_id)
       var y = data[i].y;
 
       var chartx = (x - minX) / (maxX - minX);
-      var charty = (y - minY) / (maxY - minY);
+      var charty = 1 - ((y - minY) / (maxY - minY));
 
       chartx = chartx * chart.width;
       charty = charty * chart.height;
@@ -42,10 +34,10 @@ function Chart(container_id)
     context.stroke();
   };
 
-  var maxX = -1000000;
-  var minX = 1000000;
-  var maxY = -1000000;
-  var minY = 1000000;
+  var maxX = -1000000000000;
+  var minX = 1000000000000;
+  var maxY = -1000000000000;
+  var minY = 1000000000000;
 
 
   this.calcExtrema = function(){

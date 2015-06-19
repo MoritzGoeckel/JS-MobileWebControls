@@ -4,12 +4,21 @@ function Chart(container_id)
   var context = chart.getContext("2d");
   var data;
 
+  var width = $("#"+container_id).width();
+  var height = $("#"+container_id).height();
+
+  chart.setAttribute('width', width + "px");
+  chart.setAttribute('height', height + "px");
 
   this.redraw = function(){
-    this.calcExtrema();
+    chart = $("#"+container_id).get(0);
+    context = chart.getContext("2d");
+
+    width = $("#"+container_id).width();
+    height = $("#"+container_id).height();
 
     //Clear and start
-    context.clearRect (0, 0, chart.width, chart.height);
+    context.clearRect (0, 0, width, height);
     context.beginPath();
 
     for(i = 0; i < data.length; i++){
@@ -20,8 +29,13 @@ function Chart(container_id)
       var chartx = (x - minX) / (maxX - minX);
       var charty = 1 - ((y - minY) / (maxY - minY));
 
-      chartx = chartx * chart.width;
-      charty = charty * chart.height;
+    //console.log(chartx + " " + charty);
+    console.log("H:" + height + " W:" + width);
+
+    chartx = Math.floor(chartx * width);
+    charty = Math.floor(charty * height);
+
+    //console.log(chartx + " " + charty);
 
       //Einzeichnen
       if(i === 0)
@@ -34,10 +48,10 @@ function Chart(container_id)
     context.stroke();
   };
 
-  var maxX = -1000000000000;
-  var minX = 1000000000000;
-  var maxY = -1000000000000;
-  var minY = 1000000000000;
+  var maxX = -100000000000000;
+  var minX = 100000000000000;
+  var maxY = -100000000000000;
+  var minY = 100000000000000;
 
 
   this.calcExtrema = function(){
@@ -57,13 +71,13 @@ function Chart(container_id)
         minY = y;
     }
 
-    console.log("X: " + maxX + " <-> " + minX);
-    console.log("Y: " + maxY + " <-> " + minY);
+    //console.log("X: " + maxX + " <-> " + minX);
+    //console.log("Y: " + maxY + " <-> " + minY);
   };
-
 
   this.setData = function(json){
     data = jQuery.parseJSON(json);
-    console.log(data);
+    this.calcExtrema();
+    //console.log(data);
   };
 }

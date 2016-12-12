@@ -7,8 +7,6 @@ This is a collection of mobile firendly web controls. It uses JQuery.
 * Slider
 
 ##Slider
-![Simple Slider JS](https://raw.githubusercontent.com/MoritzGoeckel/JS-MobileWebControls/master/slider.gif)
-
 ```js
 $( document ).ready(function() {
           slider = new Slider('#schieber', '#schiene');
@@ -20,15 +18,16 @@ $( document ).ready(function() {
           $("#label").html(newValue);
       }
 ```
+![Simple Slider JS](https://raw.githubusercontent.com/MoritzGoeckel/JS-MobileWebControls/master/slider.gif)
 
-##Drawer
-![Simple Drawer JS](https://raw.githubusercontent.com/MoritzGoeckel/JS-MobileWebControls/master/drawer.gif)
 
 ##Chart
-![Simple Chart JS](https://raw.githubusercontent.com/MoritzGoeckel/JS-MobileWebControls/master/chart.PNG)
-
 ```js
 var chart = new Chart("myCanvas");
       chart.setData('[{"x": 1, "y": 10}, {"x": 3, "y": 3}, {"x": 5, "y": 4}, {"x": 6, "y": 10}]');
       chart.redraw();
 ```
+![Simple Chart JS](https://raw.githubusercontent.com/MoritzGoeckel/JS-MobileWebControls/master/chart.PNG)
+
+##Drawer
+![Simple Drawer JS](https://raw.githubusercontent.com/MoritzGoeckel/JS-MobileWebControls/master/drawer.gif)
